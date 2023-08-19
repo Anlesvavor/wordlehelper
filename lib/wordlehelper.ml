@@ -15,7 +15,7 @@ module Hint = struct
     in
     let rec aux acc list = match list with
       | c :: xs when is_alpha_lowercase c -> aux ((Here c) :: acc) xs
-      | '!' :: c :: xs when is_alpha_lowercase c -> aux ((NotHere c) :: acc) xs
+      | '?' :: c :: xs when is_alpha_lowercase c -> aux ((NotHere c) :: acc) xs
       | '_' :: xs -> aux (Unknown :: acc) xs
       | [] -> acc
       | _ -> failwith "Unexpected token"
@@ -50,5 +50,20 @@ module Hint = struct
 
   let find_with_pattern (pattern : string) (list : string list) : (string list) =
     List.filter (matches_hints pattern) list
+  ;;
+end
+
+module Util = struct
+  let read_file filename =
+    let lines = ref [] in
+    let chan = open_in filename in
+    try
+      while true; do
+        lines := input_line chan :: !lines
+      done;
+      !lines
+    with End_of_file ->
+      close_in chan;
+      !lines
   ;;
 end

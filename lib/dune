@@ -1,3 +1,2 @@
 (library
- (name wordlehelper)
-)
+ (name wordlehelper))
