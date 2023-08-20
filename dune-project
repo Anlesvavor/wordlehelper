@@ -5,22 +5,20 @@
 (generate_opam_files true)
 
 (source
- (github username/reponame))
+ (github anlesvavor/wordlehelper))
 
-(authors "Author Name")
+(authors "Jesús Sáenz")
 
-(maintainers "Maintainer Name")
+(maintainers "Jesús Sáenz")
 
 (license LICENSE)
 
-(documentation https://url/to/documentation)
-
 (package
  (name wordlehelper)
- (synopsis "A short synopsis")
- (description "A longer description")
+ (synopsis "Aid for guessing words")
+ (description "Utility program that filters out words from a dictionary given a pattern that is familiar to wordle players")
  (depends ocaml dune)
  (tags
-  (topics "to describe" your project)))
+  (topics text processing)))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/dune-files.html#dune-project
